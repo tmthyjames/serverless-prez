@@ -10,6 +10,8 @@ boto3 = "*"
 ipykernel = "*"
 serverless = {editable = true, path = "."}
 dynaconf = "*"
+geopandas = "*"
+pyarrow = "*"
 
 [dev-packages]
 openpyxl = "*"
