@@ -61,9 +61,9 @@ class Hera(object):
     passed to the `create_lambda` method.
     """
 
-    BUCKET_NAME = ENTRY_POINT = 'placedly'
+    BUCKET_NAME = ENTRY_POINT = 'serverless-prez'
     BUCKET = s3.Bucket(BUCKET_NAME)
-    LAMBDA_NAME = 'placedly_main' # add as config param in __init__
+    LAMBDA_NAME = 'serverless-prez_main' # add as config param in __init__
     LAMBDA_LOC = 'src/aws/lambda.zip'
     STAGE_NAME = 'dev'
 
@@ -77,6 +77,8 @@ class Hera(object):
               build_athena_model: bool=True,
               path: str='.*/.*',
               file_type: str='to_csv', **kwargs) -> str:
+
+        s3.create_bucket(Bucket=BUCKET_NAME)
 
         for file in self.processed_files:
             file_str = str(file).lower()

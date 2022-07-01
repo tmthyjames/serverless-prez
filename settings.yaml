@@ -1,6 +1,6 @@
 data:
   raw_path: data/raw
-  processed_path:
+  processed_path: data/processed
   interim_path: data/interim
 
 etl:
@@ -20,3 +20,164 @@ etl:
       pop_estimates:
         url: https://www2.census.gov/programs-surveys/popest/tables/2010-2019/counties/totals/co-est2019-annres.xlsx
         raw_file: census/population/co-est2019-annres.xlsx
+  tiger:
+    zcta:
+      file_path: tiger/zcta
+      url: https://www2.census.gov/geo/tiger/TIGER2021/ZCTA520/
+      files:
+      - tl_2021_us_zcta520.zip
+      method: download
+      prep_function:
+      partition_by: []
+    county:
+      file_path: tiger/county
+      url: https://www2.census.gov/geo/tiger/TIGER2021/COUNTY/
+      files:
+      - tl_2021_us_county.zip
+      method: download
+      prep_function:
+      partition_by:
+      - STATEFP
+      partition_function:
+    tract:
+      file_path: tiger/tract
+      url: https://www2.census.gov/geo/tiger/TIGER2021/TRACT/
+      files:
+      - tl_2021_01_tract.zip
+      - tl_2021_02_tract.zip
+      - tl_2021_04_tract.zip
+      - tl_2021_05_tract.zip
+      - tl_2021_06_tract.zip
+      - tl_2021_08_tract.zip
+      - tl_2021_09_tract.zip
+      - tl_2021_10_tract.zip
+      - tl_2021_11_tract.zip
+      - tl_2021_12_tract.zip
+      - tl_2021_13_tract.zip
+      - tl_2021_15_tract.zip
+      - tl_2021_16_tract.zip
+      - tl_2021_17_tract.zip
+      - tl_2021_18_tract.zip
+      - tl_2021_19_tract.zip
+      - tl_2021_20_tract.zip
+      - tl_2021_21_tract.zip
+      - tl_2021_22_tract.zip
+      - tl_2021_23_tract.zip
+      - tl_2021_24_tract.zip
+      - tl_2021_25_tract.zip
+      - tl_2021_26_tract.zip
+      - tl_2021_27_tract.zip
+      - tl_2021_28_tract.zip
+      - tl_2021_29_tract.zip
+      - tl_2021_30_tract.zip
+      - tl_2021_31_tract.zip
+      - tl_2021_32_tract.zip
+      - tl_2021_33_tract.zip
+      - tl_2021_34_tract.zip
+      - tl_2021_35_tract.zip
+      - tl_2021_36_tract.zip
+      - tl_2021_37_tract.zip
+      - tl_2021_38_tract.zip
+      - tl_2021_39_tract.zip
+      - tl_2021_40_tract.zip
+      - tl_2021_41_tract.zip
+      - tl_2021_42_tract.zip
+      - tl_2021_44_tract.zip
+      - tl_2021_45_tract.zip
+      - tl_2021_46_tract.zip
+      - tl_2021_47_tract.zip
+      - tl_2021_48_tract.zip
+      - tl_2021_49_tract.zip
+      - tl_2021_50_tract.zip
+      - tl_2021_51_tract.zip
+      - tl_2021_53_tract.zip
+      - tl_2021_54_tract.zip
+      - tl_2021_55_tract.zip
+      - tl_2021_56_tract.zip
+      - tl_2021_60_tract.zip
+      - tl_2021_66_tract.zip
+      - tl_2021_69_tract.zip
+      - tl_2021_72_tract.zip
+      - tl_2021_78_tract.zip
+      method: download
+      prep_function:
+      partition_by:
+      - STATEFP
+      - COUNTYFP
+      partition_function:
+    mapping:
+      file_path: tiger/mapping
+      url: https://www.huduser.gov/portal/datasets/usps/
+      files:
+      - ZIP_COUNTY_122021.xlsx
+      method: download
+      prep_function:
+      partition_by:
+      - state
+      partition_function:
+    block:
+      file_path: tiger/block
+      url: https://www2.census.gov/geo/tiger/TIGER2021/TABBLOCK20/
+      files:
+      - tl_2021_01_tabblock20.zip
+      - tl_2021_02_tabblock20.zip
+      - tl_2021_04_tabblock20.zip
+      - tl_2021_05_tabblock20.zip
+      - tl_2021_06_tabblock20.zip
+      - tl_2021_08_tabblock20.zip
+      - tl_2021_09_tabblock20.zip
+      - tl_2021_10_tabblock20.zip
+      - tl_2021_11_tabblock20.zip
+      - tl_2021_12_tabblock20.zip
+      - tl_2021_13_tabblock20.zip
+      - tl_2021_15_tabblock20.zip
+      - tl_2021_16_tabblock20.zip
+      - tl_2021_17_tabblock20.zip
+      - tl_2021_18_tabblock20.zip
+      - tl_2021_19_tabblock20.zip
+      - tl_2021_20_tabblock20.zip
+      - tl_2021_21_tabblock20.zip
+      - tl_2021_22_tabblock20.zip
+      - tl_2021_23_tabblock20.zip
+      - tl_2021_24_tabblock20.zip
+      - tl_2021_25_tabblock20.zip
+      - tl_2021_26_tabblock20.zip
+      - tl_2021_27_tabblock20.zip
+      - tl_2021_28_tabblock20.zip
+      - tl_2021_29_tabblock20.zip
+      - tl_2021_30_tabblock20.zip
+      - tl_2021_31_tabblock20.zip
+      - tl_2021_32_tabblock20.zip
+      - tl_2021_33_tabblock20.zip
+      - tl_2021_34_tabblock20.zip
+      - tl_2021_35_tabblock20.zip
+      - tl_2021_36_tabblock20.zip
+      - tl_2021_37_tabblock20.zip
+      - tl_2021_38_tabblock20.zip
+      - tl_2021_39_tabblock20.zip
+      - tl_2021_40_tabblock20.zip
+      - tl_2021_41_tabblock20.zip
+      - tl_2021_42_tabblock20.zip
+      - tl_2021_44_tabblock20.zip
+      - tl_2021_45_tabblock20.zip
+      - tl_2021_46_tabblock20.zip
+      - tl_2021_47_tabblock20.zip
+      - tl_2021_48_tabblock20.zip
+      - tl_2021_49_tabblock20.zip
+      - tl_2021_50_tabblock20.zip
+      - tl_2021_51_tabblock20.zip
+      - tl_2021_53_tabblock20.zip
+      - tl_2021_54_tabblock20.zip
+      - tl_2021_55_tabblock20.zip
+      - tl_2021_56_tabblock20.zip
+      - tl_2021_60_tabblock20.zip
+      - tl_2021_66_tabblock20.zip
+      - tl_2021_69_tabblock20.zip
+      - tl_2021_72_tabblock20.zip
+      - tl_2021_78_tabblock20.zip
+      method: download
+      prep_function:
+      partition_by:
+      - STATEFP20
+      - COUNTYFP20
+      - TRACTCE20
