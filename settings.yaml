@@ -1,0 +1,22 @@
+data:
+  raw_path: data/raw
+  processed_path:
+  interim_path: data/interim
+
+etl:
+  census:
+    st_cty_ref:
+      url: https://www2.census.gov/programs-surveys/cbp/technical-documentation/reference/state-county-geography-reference/georef17.txt
+      raw_file: census/st_cty_ref/georef17.txt
+    businesspatterns:
+      raw_file: census/businesspatterns/cbp19co.zip
+      interim_file: census/businesspatterns/data.json
+      processed_file:
+      url: https://www2.census.gov/programs-surveys/cbp/datasets/2019/cbp19co.zip
+    population:
+      url: https://www.ers.usda.gov/webdocs/DataFiles/48747/PopulationEstimates.xlsx?v=5733.9
+      raw_file: census/population/PopulationEstimates.xlsx
+      interim_file: census/population/data.json
+      pop_estimates:
+        url: https://www2.census.gov/programs-surveys/popest/tables/2010-2019/counties/totals/co-est2019-annres.xlsx
+        raw_file: census/population/co-est2019-annres.xlsx

@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "df233aadcc4b9693271931b11b34f55246972716b15a417720305d11012612c1"
+            "sha256": "ce3f5a02e220100b80c8048a7d1bc0df887c1353fb4f94adbe3cec143a9dc042"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -101,6 +101,14 @@
             ],
             "markers": "python_version >= '3.5'",
             "version": "==5.1.1"
+        },
+        "dynaconf": {
+            "hashes": [
+                "sha256:9eaaa6e64a4a64225f80cdad14379a37656b8f2dc607ab0fd949b75d479674cc",
+                "sha256:f435c9e5b0b4b1dddf5e17e60a1e4c91ae0e6275aa51522456e671a7be3380eb"
+            ],
+            "index": "pypi",
+            "version": "==3.1.9"
         },
         "entrypoints": {
             "hashes": [
@@ -445,6 +453,10 @@
             "markers": "python_version >= '3.7'",
             "version": "==0.6.0"
         },
+        "serverless": {
+            "editable": true,
+            "path": "."
+        },
         "setuptools": {
             "hashes": [
                 "sha256:990a4f7861b31532871ab72331e755b5f14efbe52d336ea7f6118144dd478741",
@@ -539,5 +551,22 @@
             "version": "==0.2.5"
         }
     },
-    "develop": {}
+    "develop": {
+        "et-xmlfile": {
+            "hashes": [
+                "sha256:8eb9e2bc2f8c97e37a2dc85a09ecdcdec9d8a396530a6d5a33b30b9a92da0c5c",
+                "sha256:a2ba85d1d6a74ef63837eed693bcb89c3f752169b0e3e7ae5b16ca5e1b3deada"
+            ],
+            "markers": "python_version >= '3.6'",
+            "version": "==1.1.0"
+        },
+        "openpyxl": {
+            "hashes": [
+                "sha256:0ab6d25d01799f97a9464630abacbb34aafecdcaa0ef3cba6d6b3499867d0355",
+                "sha256:e47805627aebcf860edb4edf7987b1309c1b3632f3750538ed962bbcc3bd7449"
+            ],
+            "index": "pypi",
+            "version": "==3.0.10"
+        }
+    }
 }

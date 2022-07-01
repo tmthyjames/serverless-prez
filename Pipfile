@@ -8,8 +8,11 @@ pandas = "*"
 requests = "*"
 boto3 = "*"
 ipykernel = "*"
+serverless = {editable = true, path = "."}
+dynaconf = "*"
 
 [dev-packages]
+openpyxl = "*"
 
 [requires]
 python_version = "3.8"
