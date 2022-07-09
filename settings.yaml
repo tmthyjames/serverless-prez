@@ -2,21 +2,28 @@ data:
   raw_path: data/raw
   processed_path: data/processed
   interim_path: data/interim
+  db_schema_dir: data/db/schemas
+  db_table_definitions: data/db/sql
+
 
 etl:
   census:
     st_cty_ref:
       url: https://www2.census.gov/programs-surveys/cbp/technical-documentation/reference/state-county-geography-reference/georef17.txt
       raw_file: census/st_cty_ref/georef17.txt
+      partition_by: null
     businesspatterns:
       raw_file: census/businesspatterns/cbp19co.zip
       interim_file: census/businesspatterns/data.json
-      processed_file:
+      processed_file: census/businesspatterns/data.parquet
       url: https://www2.census.gov/programs-surveys/cbp/datasets/2019/cbp19co.zip
+      partition_by: null
     population:
       url: https://www.ers.usda.gov/webdocs/DataFiles/48747/PopulationEstimates.xlsx?v=5733.9
       raw_file: census/population/PopulationEstimates.xlsx
       interim_file: census/population/data.json
+      processed_file: census/population/data.parquet
+      partition_by: null
       pop_estimates:
         url: https://www2.census.gov/programs-surveys/popest/tables/2010-2019/counties/totals/co-est2019-annres.xlsx
         raw_file: census/population/co-est2019-annres.xlsx
@@ -113,7 +120,7 @@ etl:
       method: download
       prep_function:
       partition_by:
-      - state
+      - statefp
       partition_function:
     block:
       file_path: tiger/block

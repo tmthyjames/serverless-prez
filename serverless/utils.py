@@ -3,7 +3,7 @@ import requests
 
 
 def get_project_root() -> Path:
-    return Path(__file__).parent.parent.parent
+    return Path(__file__).parent.parent
 
 def download_url(url, save_path, chunk_size=128):
     save_path = Path(save_path)

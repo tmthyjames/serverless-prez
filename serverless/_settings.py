@@ -3,7 +3,7 @@ from pathlib import Path
 
 from dynaconf import Dynaconf
 
-from serverless.pipeline.utils import get_project_root
+from serverless.utils import get_project_root
 
 SETTINGS_FILE = "settings.yaml"
 

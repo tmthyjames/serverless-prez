@@ -6,8 +6,8 @@ import shutil
 import pandas as pd
 import numpy as np
 
-from serverless.pipeline.utils import download_url
 from serverless import settings
+from serverless.utils import download_url
 
 
 to_path = Path(
@@ -30,10 +30,10 @@ def get_county_business_patterns_data(to_path_raw, post_prep_filename):
 def prep_county_business_patterns_data(from_path, to_filename):
     to_filename.parent.mkdir(parents=True, exist_ok=True)
     df = pd.read_csv(from_path, dtype={'fipstate': str, 'fipscty': str})
-    df.to_json(to_filename, orient='records')
+    df.to_parquet(to_filename)
 
 
 def main():
     get_county_business_patterns_data(
-        to_path, settings.root_path/settings.data.interim_path/settings.etl.census.businesspatterns.interim_file
+        to_path, settings.root_path/settings.data.processed_path/settings.etl.census.businesspatterns.processed_file
     )

@@ -2,3 +2,4 @@
     remote = serverless
 ['remote "serverless"']
     url = s3://serverless-prez/dvc/
+    region = us-east-1

@@ -5,8 +5,8 @@ import shutil
 
 import pandas as pd
 
-from serverless.pipeline.utils import download_url
 from serverless import settings
+from serverless.utils import download_url
 
 
 def get_population_data(post_prep_filename):
@@ -77,10 +77,10 @@ def get_population_data(post_prep_filename):
     pop_est = pop20[['FIPStxt', 'Population_2020', 'Rural_urban_continuum_code_2013']].merge(pop_est, on='FIPStxt')
 
     post_prep_filename.parent.mkdir(parents=True, exist_ok=True)
-    pop_est.to_json(post_prep_filename, orient='records')
+    pop_est.to_parquet(post_prep_filename)
 
 
 def main():
     get_population_data(
-        settings.root_path/settings.data.interim_path/settings.etl.census.population.interim_file
+        settings.root_path/settings.data.processed_path/settings.etl.census.population.processed_file
     )
