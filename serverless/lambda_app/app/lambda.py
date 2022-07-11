@@ -46,16 +46,16 @@ class QueryAthena:
 
 def lambda_handler(event, context):
 
-    # event_data = json.loads(event['body'])
-    print(str(event), "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
-    # sql_from_url_param = event_data.get('sql')
-    # print(sql_from_url_param, "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
+    query_string_params = event.get('queryStringParameters') or {}
+    sql_from_url_param = query_string_params.get('sql')
 
-
-    sql = """
-        SELECT * FROM "serverlessprez"."census_population"
-        where population_2020 >= 200000
-    """
+    if sql_from_url_param:
+        sql = sql_from_url_param
+    else:
+        sql = """
+            SELECT * FROM "serverlessprez"."census_population"
+            where population_2020 >= 200000
+        """
 
     df = QueryAthena().execute_query(sql)
 

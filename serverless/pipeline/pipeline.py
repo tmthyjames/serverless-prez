@@ -189,7 +189,8 @@ class Pipeline(object):
             Publish=True,
             Role='arn:aws:iam::639381120660:role/serverlessprez',
             # Runtime='python3.8',
-            Timeout=30,
+            Timeout=60,
+            MemorySize=512,
             PackageType='Image',
         )
         return response

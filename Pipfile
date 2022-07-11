@@ -12,6 +12,7 @@ serverless = {editable = true, path = "."}
 dynaconf = "*"
 geopandas = "*"
 pyarrow = "*"
+folium = "*"
 
 [dev-packages]
 openpyxl = "*"
