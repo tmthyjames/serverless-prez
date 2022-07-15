@@ -62,11 +62,11 @@ class Pipeline(object):
     def __init__(self, filepaths: Set, partitions: List=None):
 
         processed_dir_loc = filepaths
-        self.processed_files = [
+        self.processed_files = (
             i for i in (
                 settings.root_path/settings.data.processed_path
             ).rglob('*[!.].*') if i.is_file()
-        ]
+        )
 
 
     def to_s3(self, partitions: List=None,
